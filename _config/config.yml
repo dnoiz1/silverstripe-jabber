@@ -1,0 +1,10 @@
+---
+Name: jabber
+After: 'framework/*','cms/*'
+---
+Member:
+    extensions:
+        - JabberMemberExtension
+Page_Controller:
+    extensions:
+        - JabberPageExtension
