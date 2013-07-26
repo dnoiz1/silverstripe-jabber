@@ -18,11 +18,16 @@ class JabberPageExtension extends Extension
                 $mucdomain   = JabberConfig::$ConferenceDomain;
                 $bosh_url    = JabberConfig::$BOSHUrl;
 
-                $global_auto_join = JabberConference::get()->filter('GlobalAutoJoin', true);
+                $global_auto_join  = JabberConference::get()->filter('GlobalAutoJoin', true);
+                $private_auto_join = $member->AutoJoinConferences();
 
-//                $private_auto_join = JabberConference::get()->filter('')
+                $auto_join_rooms = ArrayList::create();
 
-                $auto_join_rooms = $global_auto_join->column('Title');
+                $auto_join_rooms->merge($global_auto_join);
+                $auto_join_rooms->merge($private_auto_join);
+                $auto_join_rooms->removeDuplicates();
+
+                $auto_join_rooms = $auto_join_rooms->column('Title');
 
                 foreach($auto_join_rooms as &$room) {
                     $room = sprintf('%s@%s', $room, $mucdomain);

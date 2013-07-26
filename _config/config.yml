@@ -5,6 +5,9 @@ After: 'framework/*','cms/*'
 Member:
     extensions:
         - JabberMemberExtension
+Group:
+    extensions:
+        - JabberGroupExtension
 Page_Controller:
     extensions:
         - JabberPageExtension

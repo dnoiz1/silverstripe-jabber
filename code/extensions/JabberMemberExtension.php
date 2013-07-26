@@ -26,6 +26,28 @@ class JabberMemberExtension extends DataExtension
         return $nn;
     }
 
+    public function MemberConferences()
+    {
+        return JabberConference::get()->filter('MemberAffiliatesID', $this->owner->Groups()->getIDList());
+    }
+
+    public function AdminConferences()
+    {
+        return JabberConference::get()->filter('AdminAffiliatesID', $this->owner->Groups()->getIDList());
+    }
+
+    public function AutoJoinConferences()
+    {
+        $admin_conferences  = $this->AdminConferences();
+        $member_conferences = $this->MemberConferences();
+
+        $conferences = ArrayList::create();
+        $conferences->merge($admin_conferences);
+        $conferences->merge($member_conferences);
+        $conferences->removeDuplicates();
+        return $conferences;
+    }
+
     public function AllowedJabber()
     {
         return Permission::checkMember($this->owner->ID, 'JABBER');
