@@ -3,14 +3,9 @@
 A module for integrating ejabberd, Jappix mini and Silverstripe
 
 ## Features
-- [x] Javascript XMPP client (jappix mini)
-- [x] Token authentication against ejabberd
-- [x] MUC affiliation management via Security Groups
-- [ ] Jappix MUC autoconnect
-- [ ] Group Broadcast
-- [ ] ejabberd vCard updating
-- [ ] ejabberd Shared Roster Groups management via Security Groups
-
+- Javascript XMPP client (jappix mini)
+- Token authentication against ejabberd
+- MUC affiliation management via Security Groups
 
 ## Maintainer Contacts
 
@@ -35,3 +30,9 @@ A module for integrating ejabberd, Jappix mini and Silverstripe
 ## Known Issues
 * Only Top level and Second level groups can be authenticated
 * Auth script log paths are set for linux defaults (/var/log/ejabberd)
+
+## WIP Features
+- Jappix MUC autoconnect
+- Group Broadcast
+- ejabberd vCard updating
+- ejabberd Shared Roster Groups management via Security Groups
