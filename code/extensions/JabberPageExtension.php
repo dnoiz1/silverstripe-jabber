@@ -9,6 +9,7 @@ class JabberPageExtension extends Extension
         if($member) {
             if(Permission::check('JABBER') && $member->JabberUser && $member->JabberToken) {
                 $nickname    = preg_replace('/[^a-zA-Z0-9_ ]/', '', sprintf("%s %s", $member->FirstName, $member->LastName));
+                $nickname    = trim($nickname);
                 $animate     = (JabberConfig::$Animate) ? 'true' : 'false';
                 $sitename    = SiteConfig::current_site_config()->Title;
                 $autoconnect = ($member->JabberAutoConnect) ? 'true' : 'false';
